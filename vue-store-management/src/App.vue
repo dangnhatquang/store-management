@@ -1,74 +1,74 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="glossy">
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-          icon="menu"
-        />
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+  <div class="q-pa-md">
 
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
+    <!-- HEADER -->
+    <div style="background-color: pink">HEADER</div>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-2"
-    >
-      <q-list>
-        <!-- SAMPLE HOME VUE ROUTER -->
-        <q-item clickable to="/">
-          <q-item-section avatar>
-            <q-icon name="home" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>HOME</q-item-label>
-          </q-item-section>
-        </q-item>
+    <q-layout view="hHh Lpr lff" container style="height: 300px" class="shadow-2 rounded-borders">
+      <!-- <q-header elevated class="bg-black">
+        <q-toolbar>
+          <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
+          <q-toolbar-title>Header</q-toolbar-title>
+        </q-toolbar>
+      </q-header> -->
 
-        <!-- SAMPLE ABOUT US VUE ROUTER -->
-        <!-- <router-link to="/aboutUs" > -->
-        <q-item clickable to="/aboutUs">
-          <q-item-section avatar>
-            <q-icon name="face" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>ABOUT US</q-item-label>
-          </q-item-section>
-        </q-item>
-        <!-- </router-link> -->
-      </q-list>
-    </q-drawer>
+      <q-drawer
+        v-model="drawer"
+        show-if-above
+        :mini="miniState"
+        @mouseover="miniState = false"
+        @mouseout="miniState = true"
+        :width="200"
+        :breakpoint="500"
+        bordered
+        content-class="bg-grey-3">
+        <q-scroll-area class="fit">
+          <q-list padding>
+            <q-item clickable v-ripple to="/">
+              <q-item-section avatar>
+                <q-icon name="home"/>
+              </q-item-section>
+              <q-item-section> Home</q-item-section>
+            </q-item>
+            <q-item active clickable v-ripple to="/aboutUs">
+              <q-item-section avatar>
+                <q-icon name="face" />
+              </q-item-section>
+              <q-item-section>About us</q-item-section>
+            </q-item>
+            <q-separator/>
+          </q-list>
+        </q-scroll-area>
+      </q-drawer>
 
-    <q-page-container>
-      <router-view></router-view>
-    </q-page-container>
-  </q-layout>
+      <q-page-container>
+        <router-view></router-view>
+      </q-page-container>
+
+    </q-layout>
+
+    <!-- FOOTER -->
+    <div style="background-color: pink">FOOTER</div>
+
+  </div>
 </template>
 
 <script>
 
 export default {
+
   name: 'LayoutDefault',
 
   data () {
     return {
-      leftDrawerOpen: false,
-      menu:null
+      drawer: false,
+      miniState: true,
     }
   }
 }
 </script>
 
-<style>
-</style>
+<style scoped>
+
+</style>>

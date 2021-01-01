@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>ABOUT US</h1>
+        <b> Information about us</b>
     </div>
 </template>
 
@@ -9,3 +9,7 @@ export default {
 
 }
 </script>
+
+<style scoped>
+    
+</style>
