@@ -1,11 +1,14 @@
 <template>
-
   <div class="q-pa-md">
-
     <!-- HEADER -->
     <!-- <div style="background-color: pink">HEADER</div> -->
 
-    <q-layout view="hHh Lpr lff" container style="height: 100%; position: absolute;" class="shadow-2 rounded-borders">
+    <q-layout
+      view="hHh Lpr lff"
+      container
+      style="height: 100%; position: absolute"
+      class="shadow-2 rounded-borders"
+    >
       <!-- <q-header elevated class="bg-black">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
@@ -22,13 +25,14 @@
         :width="200"
         :breakpoint="500"
         bordered
-        content-class="bg-grey-3">
+        content-class="bg-grey-3"
+      >
         <q-scroll-area class="fit">
           <q-list padding>
             <!-- HOMEPAGE SELECTION -->
             <q-item clickable v-ripple to="/">
               <q-item-section avatar>
-                <q-icon name="home"/>
+                <q-icon name="home" />
               </q-item-section>
               <q-item-section> Home</q-item-section>
             </q-item>
@@ -44,22 +48,17 @@
             <!-- *************************** -->
 
             <!-- PROD SELECTION -->
-            <q-item active clickable v-ripple to="/products">
+            <q-item active clickable v-ripple to="/products" class="q-item">
               <q-item-section avatar>
                 <q-icon name="list" />
               </q-item-section>
               <q-item-section>Products</q-item-section>
               <!-- OPTION -->
-              <div class="q-pa-md" style="max-width: 300px">
-                <div class="q-gutter-md">
-                    {{ model }}
-                    <q-select filled v-model="model" :options="options" label="Standard" />
-                </div>
-              </div>
+              <q-select clickable v-model="model" :options="options" />
               <!-- *************************** -->
             </q-item>
             <!-- *************************** -->
-            <q-separator/>
+            <q-separator />
           </q-list>
         </q-scroll-area>
       </q-drawer>
@@ -67,42 +66,41 @@
       <q-page-container>
         <router-view></router-view>
       </q-page-container>
-
     </q-layout>
 
     <!-- FOOTER -->
     <!-- <div style="background-color: pink">FOOTER</div> -->
-
   </div>
 </template>
 
 <script>
-
 export default {
+  name: "LayoutDefault",
 
-  name: 'LayoutDefault',
-
-  data () {
+  data() {
     return {
       drawer: false,
       miniState: true,
       model: null,
       options: [
         {
-          label: 'Phone',
+          label: "Phone",
         },
         {
-          label: 'Tablet',
+          label: "Tablet",
         },
         {
-          label: 'Laptop',
+          label: "Laptop",
         },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
-
+.q-item {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 </style>>
